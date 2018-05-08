@@ -18,9 +18,9 @@ var foods = [
 ]
 
 var books = [
-  { 'title': 'Book 1' },
-  { 'title': 'Book 2' },
-  { 'title': 'Book 3' }
+  { 'name': 'Book 1', 'author': 'Author 1' },
+  { 'name': 'Book 2', 'author': 'Author 2' },
+  { 'name': 'Book 2', 'author': 'Author 3' }
 ]
 
 var movies = [

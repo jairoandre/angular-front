@@ -10,11 +10,12 @@ import { Observable } from 'rxjs/Rx';
 export class AppComponent {
 
   public foods;
+  public books;
 
   constructor(private _clientService: ClientService) {}
 
   ngOnInit() {
-    this.getFoods();
+    this.getBooks();
   }
 
   getFoods() {
@@ -25,6 +26,13 @@ export class AppComponent {
       err => console.error(err),
       () => console.log('done loading foods')
     );
+  }
+
+  getBooks() {
+    this._clientService.getBooks().subscribe(
+      data => { this.books = data },
+      err => console.error(err),
+      () => console.log('done loading books'));
   }
 
 }

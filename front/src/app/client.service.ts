@@ -15,4 +15,8 @@ export class ClientService {
   getFoods() {
     return this.http.get('http://localhost:3000/api/food');
   }
+
+  getBooks() {
+    return this.http.get('http://localhost:3000/api/books');
+  }
 }

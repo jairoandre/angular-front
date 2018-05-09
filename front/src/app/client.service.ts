@@ -13,7 +13,7 @@ export class ClientService {
   constructor(private http: HttpClient) {}
 
   getItems() {
-    return this.http.get('http://localhost:8080/items');
+    return this.http.get('http://localhost:8080/api/items');
   }
 
 }

@@ -14,6 +14,7 @@
       <table class="table">
         <thead>
           <tr>
+            <th><abbr title="Id">Id</abbr></th>
             <th><abbr title="Name">Name</abbr></th>
             <th><abbr title="Detail">Detail</abbr></th>
             <th><abbr title="Edit">Edit</abbr></th>
@@ -22,6 +23,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of items">
+            <td>{{item.id}}</td>
             <td>{{item.name}}</td>
             <td>{{item.detail}}</td>
             <td>
@@ -38,6 +40,7 @@
         </tbody>
         <thead>
           <tr>
+            <td></td>
             <td>
               <input class="input" placeholder="Name..." type="text">
             </td>

@@ -15,15 +15,15 @@
         <thead>
           <tr>
             <th><abbr title="Name">Name</abbr></th>
-            <th><abbr title="Description">Desc.</abbr></th>
+            <th><abbr title="Detail">Detail</abbr></th>
             <th><abbr title="Edit">Edit</abbr></th>
             <th><abbr title="Delete">Del.</abbr></th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let book of books">
-            <td>{{book.name}}</td>
-            <td>{{book.author}}</td>
+          <tr *ngFor="let item of items">
+            <td>{{item.name}}</td>
+            <td>{{item.detail}}</td>
             <td>
               <a href="#" class="button is-primary">
                 <i class="fa fa-pencil-alt"></i>
@@ -42,7 +42,7 @@
               <input class="input" placeholder="Name..." type="text">
             </td>
             <td>
-              <input class="input" placeholder="Author..." type="text">
+              <input class="input" placeholder="Detail..." type="text">
             </td>
             <td colspan="2">
               <a href="#" class="button is-primary">+ Add</a>

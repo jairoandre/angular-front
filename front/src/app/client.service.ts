@@ -12,11 +12,8 @@ export class ClientService {
 
   constructor(private http: HttpClient) {}
 
-  getFoods() {
-    return this.http.get('http://localhost:3000/api/food');
+  getItems() {
+    return this.http.get('http://localhost:8080/items');
   }
 
-  getBooks() {
-    return this.http.get('http://localhost:3000/api/books');
-  }
 }

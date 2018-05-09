@@ -9,30 +9,20 @@ import { Observable } from 'rxjs/Rx';
 
 export class AppComponent {
 
-  public foods;
-  public books;
+  public items;
 
-  constructor(private _clientService: ClientService) {}
+  constructor(private _clientService: ClientService) { }
 
   ngOnInit() {
-    this.getBooks();
+    this.getItems();
   }
 
-  getFoods() {
-    this._clientService.getFoods().subscribe(
-      data => { 
-        console.log('logged');
-        this.foods = data },
+  getItems() {
+    this._clientService.getItems().subscribe(
+      data => { this.items = data },
       err => console.error(err),
-      () => console.log('done loading foods')
+      () => console.log('done loading items')
     );
-  }
-
-  getBooks() {
-    this._clientService.getBooks().subscribe(
-      data => { this.books = data },
-      err => console.error(err),
-      () => console.log('done loading books'));
   }
 
 }

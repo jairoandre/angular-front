@@ -1,58 +1,75 @@
 <section class="hero is-primary">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">Foods</h1>
+      <h1 class="title">SnackBar</h1>
       <h2 class="subtitle">
-        A list of foods
+        Snackbar Sample for Netprecision
       </h2>
     </div>
   </div>
 </section>
-<section class="hero">
+<div class="notification {{messageColor}}">
+  <button class="delete"></button>
+  {{message}}
+</div>
+<section class="hero" *ngIf="orderId == null">
   <div class="hero-body">
     <div class="container">
-      <table class="table">
+      <button class="button is-primary" (click)="createOrder()">New Order</button>
+    </div>
+  </div>
+</section>
+<section class="hero" *ngIf="orderId != null">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="subtitle">Order: {{orderId}}</h1>
+      <table class="table" *ngIf="order != null">
         <thead>
           <tr>
-            <th><abbr title="Id">Id</abbr></th>
-            <th><abbr title="Name">Name</abbr></th>
-            <th><abbr title="Detail">Detail</abbr></th>
-            <th><abbr title="Edit">Edit</abbr></th>
-            <th><abbr title="Delete">Del.</abbr></th>
+            <th>
+              <abbr title="Code">Code</abbr>
+            </th>
+            <th>
+              <abbr title="Product">Product</abbr>
+            </th>
+            <th>
+              <abbr title="Quantity">Qtd.</abbr>
+            </th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of items">
-            <td>{{item.id}}</td>
-            <td>{{item.name}}</td>
-            <td>{{item.detail}}</td>
-            <td>
-              <a href="#" class="button is-primary">
-                <i class="fa fa-pencil-alt"></i>
-              </a>
-            </td>
-            <td>
-              <a href="#" class="button is-danger">
-                <i class="fa fa-trash-alt"></i>
-              </a>
-            </td>
+          <tr *ngFor="let item of order.items">
+            <td>{{item.product.code}}</td>
+            <td>{{item.product.name}}</td>
+            <td>{{item.quantity}}</td>
+            <td></td>
           </tr>
         </tbody>
         <thead>
           <tr>
-            <td></td>
             <td>
-              <input class="input" placeholder="Name..." type="text">
+              <input class="input" #code placeholder="Code..." type="text">
             </td>
             <td>
-              <input class="input" placeholder="Detail..." type="text">
+              <input class="input" #quantity placeholder="Quantity..." type="text">
             </td>
             <td colspan="2">
-              <a href="#" class="button is-primary">+ Add</a>
+              <a href="#" class="button is-primary" (click)="addProduct(code.value, quantity.value);">+ Add</a>
             </td>
           </tr>
         </thead>
       </table>
+      <p>Total: {{total}}</p>
+    </div>
+  </div>
+</section>
+<section class="hero" *ngIf="order != null">
+  <div class="hero-body">
+    <div class="container">
+      <input class="input" #amount type="text" placeholder="Payment...">
+      <button class="button" (click)="getExchange(amount.value);">Compute Exchange</button>
+      <p>Exchange: {{exchange}}</p>
     </div>
   </div>
 </section>

@@ -1,0 +1,98 @@
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">SnackBar</h1>
+      <h2 class="subtitle">
+        Snackbar Sample for Netprecision
+      </h2>
+    </div>
+  </div>
+</section>
+
+<div class="notification {{messageColor}}" *ngIf="message">
+  <button class="delete"></button>
+  {{message}}
+</div>
+
+<section class="hero" *ngIf="!orderId">
+  <div class="hero-body">
+    <div class="container">
+      <button class="button is-primary" (click)="createOrder()">New Order</button>
+    </div>
+  </div>
+</section>
+
+<section class="hero" *ngIf="orderId">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">Order nº {{orderId}}</h1>
+    </div>
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <div class="container">
+            <div class="field">
+              <label class="label">Code</label>
+              <div class="control">
+                <input class="input" #code placeholder="Code..." type="text">
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Quantity</label>
+              <div class="control">
+                <input class="input" #quantity placeholder="Quantity..." type="text">
+              </div>
+            </div>
+            <div class="field is-grouped">
+              <div class="control">
+                <a href="#" class="button is-primary" (click)="addProduct(code.value, quantity.value);">+ Add</a>
+              </div>
+              <div class="control">
+                <a href="#" class="button is-danger" (click)="removeProduct(code.value, quantity.value);">- Remove</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="container">
+            <table class="table" *ngIf="order">
+              <thead>
+                <tr>
+                  <th>
+                    <abbr title="Code">Code</abbr>
+                  </th>
+                  <th>
+                    <abbr title="Product">Product</abbr>
+                  </th>
+                  <th>
+                    <abbr title="Quantity">Qtd.</abbr>
+                  </th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of order.items">
+                  <td>{{item.product.code}}</td>
+                  <td>{{item.product.name}}</td>
+                  <td>{{item.quantity}}</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+            <p>Total: {{total}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero" *ngIf="order">
+  <div class="hero-body">
+    <div class="container">
+      <input class="input" #amount type="text" placeholder="Payment...">
+      <button class="button" (click)="getExchange(amount.value);">Compute Exchange</button>
+      <p>Exchange: {{exchange}}</p>
+    </div>
+  </div>
+</section>

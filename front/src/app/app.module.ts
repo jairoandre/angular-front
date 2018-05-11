@@ -5,10 +5,14 @@ import { FormsModule } from '@angular/forms'
 import { ClientService } from './client.service'
 
 import { AppComponent } from './app.component';
+import { SnackbarComponent } from './component/snackbar/snackbar.component';
+import { TimesheetComponent } from './component/timesheet/timesheet.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SnackbarComponent,
+    TimesheetComponent
   ],
   imports: [
     BrowserModule,

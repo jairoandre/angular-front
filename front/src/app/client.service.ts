@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { environment } from '../environments/environment';
-import { Order } from './order';
-import { OrderPayload } from './order-payload';
+import { Order } from './model/snackbar/order';
+import { OrderPayload } from './model/snackbar/order-payload';
 
 
 const httpOptions = {
